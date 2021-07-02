@@ -43,7 +43,6 @@ const CreateProduct = (props) => {
 
   return (
     <div className="ui form">
-      <h4 className="ui dividing header">Add Product</h4>
       <div className="ui field">
         <label>Name</label>
         <div className="six wide field">
