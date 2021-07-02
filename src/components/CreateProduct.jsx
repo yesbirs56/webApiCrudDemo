@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import webApiDemo from "../apis/webApiDemo";
 import { useHistory } from "react-router-dom";
+import UserContext from "../Contexts/UserContext";
 
 const CreateProduct = (props) => {
   const history = useHistory();
@@ -9,6 +10,10 @@ const CreateProduct = (props) => {
   const [numberInStock, setNumberInStock] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [isEdit, setIsEdit] = useState(false);
+  const { user } = useContext(UserContext);
+  if (!user || user.role !== "admin") {
+    history.push("/");
+  }
 
   useEffect(() => {
     if (props.product) {
